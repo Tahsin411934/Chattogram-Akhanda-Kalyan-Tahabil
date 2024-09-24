@@ -32,7 +32,8 @@ class MemberController extends Controller
 
     public function create()
     {
-        return view('member.create');
+        $totalMembers = Member::count();
+        return view('member.create', compact('totalMembers'));
     }
 
     // Handle the form submission

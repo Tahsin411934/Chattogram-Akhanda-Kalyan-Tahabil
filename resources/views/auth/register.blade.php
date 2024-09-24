@@ -5,19 +5,19 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full text-gray-950" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full text-gray-950" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
         <div class="mt-4">
     <x-input-label for="role" :value="__('Role')" />
-    <select id="role" name="role" class="block mt-1 w-full" required>
+    <select id="role" name="role" class="block mt-1 w-full text-gray-950" required>
         <option value="" disabled>Select a role</option>
         <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
         <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
@@ -31,7 +31,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full text-gray-950"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -43,7 +43,7 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <x-text-input id="password_confirmation" class="block mt-1 w-full text-gray-950"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 

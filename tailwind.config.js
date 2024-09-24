@@ -12,6 +12,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
+              'prata': ['Prata', 'sans-serif'],
+              'poppins': ['Poppins', 'sans-serif'],
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },

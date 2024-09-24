@@ -41,6 +41,12 @@ class DepositController extends Controller
         // Update member balance
         $member->update(['balance' => $current_balance]);
 
-        return redirect()->route('deposits.create')->with('success', 'Deposit recorded successfully!');
+        return redirect()->route('deposits.show', $deposit->id)->with('success', 'Deposit recorded successfully!');
     }
+    public function show($id)
+{
+    $deposit = Deposit::with('member')->findOrFail($id); 
+    return view('deposits.show', compact('deposit'));
+}
+
 }

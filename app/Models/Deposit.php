@@ -14,4 +14,8 @@ class Deposit extends Model
         'current_balance',
         'image',
     ];
+    public function member()
+    {
+        return $this->belongsTo(Member::class, 'member_id', 'member_id');
+    }
 }

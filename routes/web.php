@@ -14,7 +14,7 @@ Route::get('/logintest', function () {
 });
 Route::get('/', [HomeController::class, 'showHome']);
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard'); // This view should include your React app
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/deposits/create', [DepositController::class, 'create'])->name('deposits.create');
     Route::post('/deposits', [DepositController::class, 'store'])->name('deposits.store');
+    Route::get('/deposits/{id}', [DepositController::class, 'show'])->name('deposits.show');
 
     Route::get('/upload-image', [ImageUploadController::class, 'showUploadForm'])->name('image.upload');
     Route::post('/upload-image', [ImageUploadController::class, 'uploadImage'])->name('image.upload.post');
@@ -43,6 +44,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('withdrawals/create', [WithdrawalController::class, 'create'])->name('withdrawals.create');
     Route::post('withdrawals', [WithdrawalController::class, 'store'])->name('withdrawals.store');
+    Route::get('/withdrawals/{id}', [WithdrawalController::class, 'show'])->name('withdrawals.show');
 });
 
 require __DIR__ . '/auth.php';

@@ -21,4 +21,8 @@ class Withdrawal extends Model
     protected $casts = [
         'date' => 'datetime',
     ];
+    public function member()
+    {
+        return $this->belongsTo(Member::class, 'member_id', 'member_id');
+    }
 }

@@ -1,13 +1,15 @@
-
 <x-guest-layout>
+    <div class="text-center p-10">
+        <h1 class="font-bold text-xl text-[#FFF481]">User Login</h1>
+    </div>
 
     <!-- Full Page Background -->
-    <div class=" min-h-screen flex flex-col -pt-10 items-center justify-center">
+    <div class=" mx-auto flex flex-col items-center justify-center">
         <!-- Session Status -->
-       
+
         <x-auth-session-status class="mb-4 bg-gray-900" :status="session('status')" />
 
-        <form method="POST" action="{{ route('login') }}" class="w-full  max-w-md mx-auto bg-gray-800 p-6 rounded-lg">
+        <form method="POST" action="{{ route('login') }}" class="w-full   max-w-md mx-auto bg-gray-800 p-6 rounded-lg">
             @csrf
 
             <!-- Email Address -->
@@ -21,9 +23,9 @@
             <div class="mt-4">
                 <x-input-label class="text-gray-50" for="password" :value="__('Password')" />
                 <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+                    type="password"
+                    name="password"
+                    required autocomplete="current-password" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
@@ -37,9 +39,9 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
                 @endif
 
                 <x-primary-button class="ms-3">

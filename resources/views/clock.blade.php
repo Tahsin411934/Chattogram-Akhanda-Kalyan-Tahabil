@@ -1,6 +1,6 @@
-<div class="flex justify-between items-end mx-auto pb-4 font-bold text-xl text-[#FFF481] gap-36 w-[90%]">
-<h1 class="text-2xl"> <span>@yield('title', 'Home')</span></h1>
-    <div class="clock text-4xl" id="clock">
+<div class="">
+
+    <div class="clock text-4xl text-center" id="clock">
         <!-- The clock will be displayed here -->
     </div>
 </div>
