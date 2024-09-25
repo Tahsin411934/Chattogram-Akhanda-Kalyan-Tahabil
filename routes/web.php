@@ -8,8 +8,10 @@ use App\Http\Controllers\NomineeController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\WithdrawalController;
+use App\Http\Controllers\ReceiptController;
 
-Route::get('/logintest', function () {
+
+Route::get('/wel', function () {
     return view('welcome');
 });
 Route::get('/', [HomeController::class, 'showHome']);
@@ -22,13 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
-    Route::get('/members', [MemberController::class, 'index'])->name('member.index');
-    Route::get('/members/edit/{id}', [MemberController::class, 'edit'])->name('members.edit');
-    Route::post('/members/update/{id}', [MemberController::class, 'update'])->name('members.update');
-
     Route::get('/member/create', [MemberController::class, 'create'])->name('member.create');
     Route::post('/member/store', [MemberController::class, 'store'])->name('member.store');
+    Route::get('/memberInfo', [MemberController::class, 'memberInfo'])->name('memberInfo.showMemberInfo');
 
     Route::get('/nominees/create', [NomineeController::class, 'create'])->name('nominees.create');
     Route::post('/nominees', [NomineeController::class, 'store'])->name('nominees.store');
@@ -45,6 +43,9 @@ Route::middleware('auth')->group(function () {
     Route::get('withdrawals/create', [WithdrawalController::class, 'create'])->name('withdrawals.create');
     Route::post('withdrawals', [WithdrawalController::class, 'store'])->name('withdrawals.store');
     Route::get('/withdrawals/{id}', [WithdrawalController::class, 'show'])->name('withdrawals.show');
+
+    Route::get('/receipt/create', [ReceiptController::class, 'create'])->name('receipt.create');
+    Route::get('/receipt/withdrawal', [ReceiptController::class, 'withdrawal'])->name('receipt.withdrawal');
 });
 
 require __DIR__ . '/auth.php';

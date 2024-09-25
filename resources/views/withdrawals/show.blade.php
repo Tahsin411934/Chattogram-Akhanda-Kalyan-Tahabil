@@ -20,7 +20,7 @@
             </div>
 
             <hr className='-ml-0 h-[1px] border-none bg-slate-200 mx-auto w-[80%]' />
-            <div class="mt-16 mx-auto p-4 rounded-lg">
+            <div class="mt-6 mx-auto p-4 rounded-lg">
                 <h1 class="text-xl font-bold pb-5">Transaction Number: {{ $withdrawal->id }}</h1>
                 <h1 class="text-xl font-bold">Member Information:</h1>
                 <div class="text-gray-500 ml-5 pb-5">

@@ -28,22 +28,22 @@
 
 
             @if(session('success'))
-            <p class="bg-green-100 text-green-700 p-4 rounded mb-4 w-[93%] mx-auto ">{{ session('success') }}</p>
+            <p class="bg-green-100 text-green-700 p-4 rounded  w-[93%] mx-auto ">{{ session('success') }}</p>
             @endif
             <div class="w-[70%] mx-auto  p-5 ">
                 <form action="{{ route('member.store') }}" method="POST" enctype="multipart/form-data"
                     onsubmit="return validateForm()">
                     @csrf
-                    
+
                     <div class="bg-slate-800  p-8 border border-gray-600 shadow-lg rounded-xl">
-                    <div class="text-center pb-8 text-xl text-[#95A5BC] font-semibold">
-                        <h2>
-                            Provide Your Information To
-                        </h2>
-                        <h1 class="font-bold font-prata text-white">
-                            Be A Member
-                        </h1>
-                    </div>
+                        <div class="text-center pb-8 text-xl text-[#95A5BC] font-semibold">
+                            <h2>
+                                Provide Your Information To
+                            </h2>
+                            <h1 class="font-bold font-prata text-white">
+                                Be A Member
+                            </h1>
+                        </div>
                         <!-- Member Details -->
                         <div class=" ">
                             <div class="flex items-center justify-center  gap-2">

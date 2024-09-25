@@ -6,7 +6,7 @@
     @vite('resources/css/app.css')
     <title>Document</title>
 </head>
-<body class="bg-[#031525] font-Inter flex justify-center items-center">
+<body class="bg-[#031525] dark:bg-gray-200 font-Inter flex justify-center items-center">
    
     <div class="bg-[#162C46] w-[50%] rounded-xl p-5 h-96 shadow-2xl mt-[10%]">
         <div class="flex justify-center items-center gap-4">

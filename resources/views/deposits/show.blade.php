@@ -11,14 +11,14 @@
 
         <div id="printableArea"
             class="container  border border-gray-600 w-[70%] mt-2   col-span-8 mx-auto text-gray-100  p-4 rounded-lg shadow-lg">
-            <img src="/logo.jpg" alt="" class="w-12 mx-auto pt-16  h-12 rounded-full">
+            <img src="/logo.jpg" alt="" class="w-12 mx-auto   h-12 rounded-full">
             <h1 class="text-3xl font-bold text-center mb-4">Deposit Slip</h1>
             <div class="text-center">
                 <p><strong>Date:</strong> {{ $deposit->created_at->format('d M Y H:i:s') }}</p>
             </div>
 
             <hr className='-ml-0 h-[1px] border-none bg-slate-200 mx-auto w-[80%] ' />
-            <div class="mt-16 mx-auto p-4 rounded-lg">
+            <div class="mt-6 mx-auto p-4 rounded-lg">
                 <h1 class="text-xl font-bold pb-5">Transaction Number: {{ $deposit->id }}</h1>
                 <h1 class="text-xl font-bold">Member Information:</h1>
                 <div class="text-gray-500 ml-5 pb-5">

@@ -7,29 +7,7 @@ use App\Models\Member;
 
 class MemberController extends Controller
 {
-    public function index()
-    {
-        // Fetch all members from the database
-        $members = Member::all();
-
-        // Pass the data to the view
-        return view('members.index', compact('members'));
-    }
-
-    public function edit($id)
-    {
-        $member = Member::findOrFail($id);
-        return view('members.edit', compact('member'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $member = Member::findOrFail($id);
-        $member->update($request->all());
-        return redirect()->route('members.edit', $id)->with('success', 'Member updated successfully.');
-    }
-
-
+    
     public function create()
     {
         $totalMembers = Member::count();
@@ -84,4 +62,25 @@ class MemberController extends Controller
 
         return redirect()->route('member.create')->with('success', 'Member added successfully!');
     }
+
+    public function memberInfo(Request $request)
+    {
+        // Fetch all members for the datalist
+        $members = Member::all();
+
+        $selectedMember = null;
+        if ($request->has('member_id')) {
+            $selectedMember = Member::with('nominees')->where('member_id', $request->input('member_id'))->first();
+
+            if (!$selectedMember) {
+                return redirect()->back()->withErrors(['member_id' => 'Member not found.']);
+            }
+        }
+
+        return view('memberInfo.showMemberInfo', compact('selectedMember', 'members'));
+    }
+
+    
+    
+
 }

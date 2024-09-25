@@ -36,14 +36,19 @@ class Member extends Model
     // Accessor to get the image URL
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/' . $this->image) : null;
+        return $this->image ? asset('' . $this->image) : null;
     }
 
     // Accessor to get the signature URL
     public function getSignatureUrlAttribute()
     {
-        return $this->signature ? asset('storage/' . $this->signature) : null;
+        return $this->signature ? asset('' . $this->signature) : null;
     }
 
-    // You can add more accessors for the newly added fields if needed
+
+
+public function nominees()
+{
+    return $this->hasMany(Nominee::class, 'member_id'); // Again, adjust 'member_id' as necessary
+}
 }

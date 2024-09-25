@@ -77,6 +77,32 @@
                     </a>
                 </li>
                 <li class="rounded-sm">
+                    <a href="/memberInfo">
+                        <button class="flex items-center p-2 space-x-3 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.485 22 2 17.515 2 12S6.485 2 12 2s10 4.485 10 10-4.485 10-10 10zm-1-17h2v2h-2zm0 4h2v10h-2z" />
+                            </svg>
+
+                            <span>Member Information</span>
+                        </button>
+                    </a>
+                </li>
+                <li class="rounded-sm">
+                    <a href="/receipt/create">
+                        <button class="flex items-center p-2 space-x-3 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                fill="currentColor">
+                                <path
+                                    d="M19 8h-1V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v4H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-11-4h8v4H8V4zm10 16H6v-8h12v8zm-6-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm2-6H8V10h10v2z" />
+                            </svg>
+
+                            <span>Recipt Print</span>
+                        </button>
+                    </a>
+                </li>
+                <li class="rounded-sm">
                     <a rel="noopener noreferrer" href="#" class="flex items-center p-2 space-x-3 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                             class="w-5 h-5 fill-current dark:text-gray-600">
