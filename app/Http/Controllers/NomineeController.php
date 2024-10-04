@@ -24,8 +24,8 @@ class NomineeController extends Controller
             'nominee_address' => 'required|string',
             'relation_with_member' => 'required|string',
             'get_percentage' => 'required|numeric|min:0|max:100',
-            'nominee_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'nominee_signature' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'nominee_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nominee_signature' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Create a new Nominee instance, excluding images

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\Withdrawal;
+use App\Models\Deposit;
+use App\Models\Nominee;
 
 class MemberController extends Controller
 {
@@ -26,8 +29,8 @@ class MemberController extends Controller
             'spouse_name' => 'nullable|string|max:255',
             'permanent_address' => 'required|string',
             'present_address' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image upload
-            'signature' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate signature upload
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'signature' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
             'mobile_number' => 'nullable|string|max:15',
             'email' => 'nullable|email|max:255',
             'date_of_birth' => 'nullable|date',
@@ -65,7 +68,6 @@ class MemberController extends Controller
 
     public function memberInfo(Request $request)
     {
-        // Fetch all members for the datalist
         $members = Member::all();
 
         $selectedMember = null;
@@ -80,7 +82,13 @@ class MemberController extends Controller
         return view('memberInfo.showMemberInfo', compact('selectedMember', 'members'));
     }
 
+    public function showDashboard()
+{
+    $withdrawals = \App\Models\Withdrawal::latest()->take(3)->get();
+    $deposits = \App\Models\Deposit::latest()->take(2)->get();
+
     
-    
+    return view('dashboard', compact('withdrawals', 'deposits'));
+}
 
 }

@@ -9,15 +9,17 @@ use App\Http\Controllers\DepositController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\TransactionHistoryController;
 
 
 Route::get('/wel', function () {
     return view('welcome');
 });
+
 Route::get('/', [HomeController::class, 'showHome']);
-Route::get('/dashboard', function () {
-    return view('dashboard'); // This view should include your React app
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [MemberController::class, 'showDashboard']) 
+    ->middleware(['auth', 'verified']) // Apply middleware
+    ->name('dashboard'); // Set the name for the route
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,6 +48,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/receipt/create', [ReceiptController::class, 'create'])->name('receipt.create');
     Route::get('/receipt/withdrawal', [ReceiptController::class, 'withdrawal'])->name('receipt.withdrawal');
+
+
+    Route::get('/transaction/history', [TransactionHistoryController::class, 'dailyTransactionHistory'])->name('transactionHistory.transactionHistory');
+   
 });
 
 require __DIR__ . '/auth.php';

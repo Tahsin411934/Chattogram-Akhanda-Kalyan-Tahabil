@@ -1,21 +1,19 @@
 <x-app-layout>
-    <div class="grid  grid-cols-10 ">
-        <div class="col-span-2 border-r border-gray-600 shadow-2xl">
+    <div class="grid  grid-cols-11 ">
+        <div class="col-span-2 shadow-2xl">
             @include('layouts.sidebar')
         </div>
-        <div class="col-span-8 font-poppins">
-            @section('title', 'Make A Deposit,')
+        <div class="col-span-9 font-poppins">
+          
             <div class="container mx-auto  ">
                 @if(session('success'))
                 <div class="bg-green-100 text-green-700 p-4 rounded mb-4">
                     {{ session('success') }}
                 </div>
                 @endif
-                <div class=" text-center">
-                    @include('clock')
-                </div>
+               
                 <form action="{{ route('deposits.store') }}"
-                    class="w-[65%] mx-auto bg-gray-800 py-3 border border-gray-700 mt-2 rounded-xl px-16" method="POST"
+                    class="w-[65%] mx-auto dark:bg-gray-800 bg-slate-200 py-3 border border-gray-700 mt-2 rounded-xl px-16" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-5  items-center">
@@ -23,12 +21,12 @@
                             <div id="member_image" class="border border-gray-600 rounded-lg h-32 w-32">
                                 <img src="" width="350" height="350" id="image_display" class="h-32 w-32 rounded-lg p-2"
                                     style="display:none;">
-                                <p id="image_path" class="text-gray-600 hidden -mb-10 "></p>
+                                <p id="image_path" class="dark:text-gray-600 hidden -mb-10 "></p>
                             </div>
                         </div>
-                        <div class="col-span-3 text-xl font-bold font-prata text-gray-400">
+                        <div class="col-span-3 text-xl font-bold font-prata dark:text-gray-50">
                             <h1>Make A Deposite</h1>
-                            <div class="font-base text-sm mt-6">
+                            <div class="font-base dark:text-gray-400 text-sm mt-6">
                                 <div id="date"></div>
                                 <div id="time"></div>
                             </div>
@@ -37,7 +35,7 @@
                     </div>
                     <!-- Member ID field with datalist -->
                     <div class="mb-4">
-                        <label for="member_id" class="block text-gray-50">Member ID</label>
+                        <label for="member_id" class="block dark:text-gray-50">Member ID</label>
                         <input list="members_list" id="member_id" name="member_id"
                             class="border rounded-lg p-2 w-full text-gray-900" required placeholder="Type to search...">
 
@@ -52,41 +50,41 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="member_name" class="block text-gray-50">Member Name</label>
-                        <input type="text" id="member_name" name="member_name" class="border rounded-lg p-2 w-full"
+                        <label for="member_name" class="block dark:text-gray-50">Member Name</label>
+                        <input type="text" id="member_name" name="member_name" class="border text-gray-900 rounded-lg p-2 w-full"
                             value="{{ old('member_name') }}" readonly>
                     </div>
 
                     <div class="mb-4">
-                        <label for="balance" class="block text-gray-50">Balance</label>
-                        <input type="text" id="balance" name="balance" class="border rounded-lg p-2 w-full"
+                        <label for="balance" class="block dark:text-gray-50">Balance</label>
+                        <input type="text" id="balance" name="balance" class="border text-gray-900 rounded-lg p-2 w-full"
                             value="{{ old('balance') }}" readonly>
                     </div>
 
                     <div class="mb-4">
-                        <label for="deposit_amount" class="block text-gray-50">Deposit Amount</label>
+                        <label for="deposit_amount" class="block dark:text-gray-50">Deposit Amount</label>
                         <input type="number" id="deposit_amount" name="deposit_amount"
-                            class="border rounded-lg p-2 w-full" value="{{ old('deposit_amount') }}" required>
+                            class="border rounded-lg p-2 text-gray-900 w-full" value="{{ old('deposit_amount') }}" required>
                         @error('deposit_amount')
                         <p class="text-red-500 mt-1">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="mb-4">
-                        <label for="current_balance" class="block text-gray-50">Current Balance</label>
+                        <label for="current_balance" class="block dark:text-gray-50">Current Balance</label>
                         <input type="text" id="current_balance" name="current_balance"
-                            class="border rounded-lg p-2 w-full" value="{{ old('current_balance') }}" readonly>
+                            class="border rounded-lg text-gray-900 p-2 w-full" value="{{ old('current_balance') }}" readonly>
                     </div>
 
                     <div class="mb-4 hidden">
-                        <label for="deposit_image" class="block text-gray-50">Deposit Image</label>
-                        <input type="file" id="deposit_image" name="deposit_image" class="border p-2 w-full">
+                        <label for="deposit_image" class="block dark:text-gray-50">Deposit Image</label>
+                        <input type="file" id="deposit_image" name="deposit_image" class="border text-gray-900 p-2 w-full">
                         @error('deposit_image')
                         <p class="text-red-500 mt-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="bg-blue-500 text-white p-2 rounded">Make A Deposit</button>
+                        <button type="submit" class="bg-blue-500 dark:text-white p-2 rounded">Make A Deposit</button>
                     </div>
                 </form>
 

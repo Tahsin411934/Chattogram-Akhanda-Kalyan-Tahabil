@@ -1,16 +1,17 @@
 <x-app-layout>
-    <div class="grid border  grid-cols-10">
-        <div class="col-span-2 border-r border-b border-gray-600">
+    <div class="grid border   grid-cols-10">
+        <div class="col-span-2 ">
             @include('layouts.sidebar')
         </div>
         <div class="mx-auto   w-[90%]  col-span-8">
             @include("layouts.tab")
             <div class="font-poppins flex item-center gap-10 text-gray-200">
                 <!-- <h1>Find Deposit Information :</h1> -->
-                <form method="GET" action="{{ route('receipt.withdrawal') }}">
-                    <input class="rounded-lg text-gray-950" type="text" name="id"
-                        placeholder="Enter Deposit Transaction id" required>
-                    <button type="submit">Find</button>
+                <form class="w-full" method="GET" action="{{ route('receipt.withdrawal') }}">
+                    <input class="rounded-lg w-full text-gray-950" type="text" name="id"
+                        placeholder="Enter Withdrawal Transaction id" required>
+                    <button type="submit"
+                        class="bg-blue-500 mt-3 text-white py-2 px-4 rounded hover:bg-blue-600">Find</button>
                 </form>
             </div>
 
@@ -20,16 +21,24 @@
                 class="container border border-gray-600 w-[70%] mt-2 col-span-8 mx-auto text-gray-100 p-4 rounded-lg shadow-lg">
                 <img src="\logo.jpg" alt="" class="w-12 mx-auto  h-12 rounded-full">
 
-                <h1 class="text-3xl font-bold text-center mb-4">Withdrawal Slip</h1>
+                <h1 class="text-2xl font-bold text-center ">Chattogram Akhanda Kalyan Tahabil</h1>
+                <div class="text-center text-sm text-slate-400">
+                    <p>(Chittagong Akhondo Mondoli's Financial Organization)</p>
+                    <p>Prayer Tempel, 98, Rohomatgonj, Chittagong.</p>
+                    <p> Establised: 1983</p>
+                </div>
+                <hr className='-ml-0 h-[1px] border-none bg-slate-200 mx-auto w-[80%]' />
                 <div class="text-center">
-                    <p><strong>Date:</strong> {{ $withdraw->date->format('d M Y H:i:s') }}</p>
+                    <h1 class="text-xl mt-5 font-bold">Withdrawal Receipt Slip</h1>
+                    <div class="text-center text-sm text-slate-400">
+                        <p>Date: {{ $withdraw->created_at->format('d M Y H:i:s') }}</p>
+                    </div>
                 </div>
 
-                <hr className='-ml-0 h-[1px] border-none bg-slate-200 mx-auto w-[80%]' />
                 <div class="mt-6 mx-auto p-4 rounded-lg">
-                    <h1 class="text-xl font-bold pb-5">Transaction Number: {{ $withdraw->id }}</h1>
-                    <h1 class="text-xl font-bold">Member Information:</h1>
-                    <div class="text-gray-500 ml-5 pb-5">
+                    <h1 class="text-lg font-semibold pb-2">Transaction Number: {{ $withdraw->id }}</h1>
+                    <h1 class="text-lg font-semibold">Member Information:</h1>
+                    <div class="text-gray-500 ml-48 pb-1">
                         <p><strong>ID:</strong> {{ $withdraw->member_id }}</p>
                         <p><strong>Name:</strong> {{ $withdraw->member->member_name }}</p>
                     </div>

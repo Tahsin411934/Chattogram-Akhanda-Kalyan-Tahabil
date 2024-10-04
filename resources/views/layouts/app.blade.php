@@ -1,3 +1,5 @@
+<!-- app.blade.php -->
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -17,15 +19,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Prata&display=swap"
         rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased bg-[#162C46]">
-    <div class=" bg-[#162C46]">
+<body class="font-sans antialiased ">
+    <div class="">
+        <!-- Include the navigation -->
         @include('layouts.navigation')
+
+       
 
         <!-- Page Heading -->
         @isset($header)
@@ -38,9 +43,7 @@
 
         <!-- Page Content -->
         <main class="">
-
             {{ $slot }}
-
         </main>
     </div>
 </body>

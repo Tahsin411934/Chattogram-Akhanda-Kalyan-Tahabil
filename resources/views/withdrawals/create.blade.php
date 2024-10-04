@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="">
-        <div class="grid grid-cols-10">
-            <div class="col-span-2 border-r border-b border-gray-600 ">
+        <div class="grid grid-cols-11">
+            <div class="col-span-2  ">
                 @include('layouts.sidebar')
             </div>
 
@@ -12,9 +12,9 @@
             @endif
 
             <form action="{{ route('withdrawals.store') }}"
-                class="col-span-8 w-[65%] mx-auto bg-gray-900 py-3 border border-gray-600 mt-2 rounded-xl px-16" method="POST">
+                class="col-span-9 w-[65%] mx-auto dark:bg-gray-800 py-3 border border-gray-600 mt-1 rounded-xl px-16" method="POST">
                 @csrf
-                <div class="col-span-3 text-center text-xl font-bold font-prata text-gray-400">
+                <div class="col-span-3 text-center text-xl font-bold font-prata dark:text-gray-400">
                             <h1 >Make A Withdrawal</h1>
                             <div class="font-base text-sm mt-6">
                                 <div id="date"></div>
@@ -24,7 +24,7 @@
                         </div>
                 <div class="flex items-center justify-center gap-5">
                     <div>
-                        <label class="block text-gray-50">Member Image</label>
+                        <label class="block dark:text-gray-50">Member Image</label>
                         <div class="mb-4 w-32 h-32 border border-gray-400 ">
                             <img id="member_image" src="" alt="Member Image" class=" w-32 h-32 object-cover rounded"
                                 style="display: none;">
@@ -32,7 +32,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-gray-50">Member Signature</label>
+                        <label class="block dark:text-gray-50">Member Signature</label>
                         <div class="mb-4 border border-gray-400 w-32 h-32">
                             <img id="member_signature" src="" alt="Member Signature"
                                 class=" w-32 h-32 object-cover rounded" style="display: none;">
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="member_id" class="block text-gray-50">Member ID</label>
+                    <label for="member_id" class="block dark:text-gray-50">Member ID</label>
                     <input list="members_list" id="member_id" name="member_id"
                         class="border rounded-lg p-2 w-full text-gray-900" required placeholder="Type to search..."
                         oninput="updateMemberDetails()">
@@ -58,21 +58,21 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="member_name" class="block text-gray-50">Member Name</label>
-                    <input type="text" id="member_name" name="member_name" class="border rounded-lg p-2 w-full"
+                    <label for="member_name" class="block dark:text-gray-50">Member Name</label>
+                    <input type="text" id="member_name" name="member_name" class="border text-gray-900 rounded-lg p-2 w-full"
                         value="{{ old('member_name') }}" readonly>
                 </div>
 
                 <div class="mb-4">
-                    <label for="balance" class="block text-gray-50">Balance</label>
-                    <input type="text" id="balance" name="balance" class="border rounded-lg p-2 w-full"
+                    <label for="balance" class="block dark:text-gray-50">Balance</label>
+                    <input type="text" id="balance" name="balance" class="border text-gray-900 rounded-lg p-2 w-full"
                         value="{{ old('balance') }}" readonly>
                 </div>
 
                 <div class="mb-4">
-                    <label for="withdraw_amount" class="block text-gray-50">Withdrawal Amount</label>
+                    <label for="withdraw_amount" class="block dark:text-gray-50">Withdrawal Amount</label>
                     <input type="number" id="withdraw_amount" name="withdraw_amount"
-                        class="border rounded-lg p-2 w-full" value="{{ old('withdraw_amount') }}" required
+                        class="border rounded-lg p-2 text-gray-900 w-full" value="{{ old('withdraw_amount') }}" required
                         oninput="updateBalanceAfter()">
                     @error('withdraw_amount')
                     <p class="text-red-500 mt-1">{{ $message }}</p>
@@ -80,13 +80,13 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="balance_after" class="block text-gray-50">Balance After Withdrawal</label>
-                    <input type="text" id="balance_after" name="balance_after" class="border rounded-lg p-2 w-full"
+                    <label for="balance_after" class="block dark:text-gray-50">Balance After Withdrawal</label>
+                    <input type="text" id="balance_after" name="balance_after" class="border text-gray-900 rounded-lg p-2 w-full"
                         value="{{ old('balance_after') }}" readonly>
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="bg-blue-500 text-white p-2 rounded">Make A Withdrawal</button>
+                    <button type="submit" class="bg-blue-500 dark:text-white p-2 rounded">Make A Withdrawal</button>
                 </div>
             </form>
         </div>
