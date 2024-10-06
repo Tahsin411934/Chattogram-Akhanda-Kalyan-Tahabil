@@ -14,8 +14,10 @@ class MemberController extends Controller
     public function create()
     {
         $totalMembers = Member::count();
-        return view('member.create', compact('totalMembers'));
+        $largestMemberId = Member::max('id'); // Assuming 'member_id' is the name of the ID column
+        return view('member.create', compact('totalMembers', 'largestMemberId'));
     }
+    
 
     // Handle the form submission
     public function store(Request $request)

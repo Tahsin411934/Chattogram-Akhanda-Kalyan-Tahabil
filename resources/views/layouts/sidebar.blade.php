@@ -2,14 +2,11 @@
     <div class="space-y-3">
 
         <div class="flex items-center justify-between">
-
             <h2>Dashboard</h2>
             <div class="flex justify-center items-center mt-2">
                 @include('layouts.theme')
             </div>
         </div>
-
-
 
         <div class="relative mb-4">
             <form action="/search" method="GET" class="relative">
@@ -26,23 +23,26 @@
                     class="w-full py-2 pl-10 text-sm border rounded-md focus:outline-none dark:bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50">
             </form>
         </div>
-        <div class="flex-1">
-            <ul class="pt-2 pb-4 space-y-1 text-sm text-gray-100">
+
+        <div class="flex-1 items-center justify-center ">
+            <ul id="navbar" class="pt-2 pb-4 space-y-1 text-sm text-gray-100">
                 <li class="rounded-sm">
-                    <a href="/dashboard"><button
-                            class="flex {{ request()->is('dashboard') ? ' pb-2 w-full text-[#165BAA]' : '' }} items-center p-2 space-x-3 rounded-md"><svg
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current ">
+                    <a href="/dashboard">
+                        <button
+                            class="flex {{ request()->is('dashboard') ? 'pb-2 w-full text-[#165BAA]' : '' }} items-center p-2 space-x-3 rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current ">
                                 <path
                                     d="M469.666,216.45,271.078,33.749a34,34,0,0,0-47.062.98L41.373,217.373,32,226.745V496H208V328h96V496H480V225.958ZM248.038,56.771c.282,0,.108.061-.013.18C247.9,56.832,247.756,56.771,248.038,56.771ZM448,464H336V328a32,32,0,0,0-32-32H208a32,32,0,0,0-32,32V464H64V240L248.038,57.356c.013-.012.014-.023.024-.035L448,240Z">
                                 </path>
                             </svg>
-                            <span class="font-semibold">Home</span></button></a>
-
+                            <span class="font-semibold">Home</span>
+                        </button>
+                    </a>
                 </li>
                 <li class="rounded-sm">
                     <a href="/member/create">
                         <button
-                            class="flex items-center p-2 space-x-3 rounded-md {{ request()->is('member/create') ? 'pb-2 w-full text-[#165BAA]  ' : '' }}">
+                            class="flex items-center p-2 space-x-3 rounded-md {{ request()->is('member/create') ? 'pb-2 w-full text-[#165BAA]' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -63,7 +63,6 @@
                                     stroke-linejoin="round" />
                             </svg>
                             <span class="font-semibold">Deposit</span>
-                            <!-- Fixed spelling from "Deposite" to "Deposit" -->
                         </button>
                     </a>
                 </li>
@@ -104,39 +103,25 @@
                                 <path
                                     d="M19 8h-1V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v4H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-11-4h8v4H8V4zm10 16H6v-8h12v8zm-6-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm2-6H8V10h10v2z" />
                             </svg>
-                            <span class="font-semibold">Receipt Print</span>
-                            <!-- Fixed spelling from "Recipt Print" to "Receipt Print" -->
+                            <span class="font-semibold">Generate Receipt</span>
                         </button>
                     </a>
                 </li>
 
                 <li class="rounded-sm">
-                    <a href="/transaction/history">
+                    <a href="/transaction-history">
                         <button
-                            class="flex items-center p-2 space-x-3 rounded-md {{ request()->is('transaction/history') ? 'pb-2 w-full text-[#165BAA]' : '' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4.5C6.75 4.5 2.25 12 12 19.5 21.75 12 17.25 4.5 12 4.5z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 15c-1.5 0-3-1-3-3s1.5-3 3-3 3 1 3 3-1.5 3-3 3z" />
+                            class="flex items-center p-2 space-x-3 rounded-md {{ request()->is('transaction-history') ? 'pb-2 w-full text-[#165BAA]' : '' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"
+                                class="w-4 h-4">
+                                <path
+                                    d="M8 0a8 8 0 0 1 8 8 7.93 7.93 0 0 1-1.015 3.859 1 1 0 0 0-.314.783v1.559a1 1 0 0 1-1 1h-1.605a1 1 0 0 1-.982-1.182 1 1 0 0 0 .682-.82A6.028 6.028 0 0 0 8 6a6.028 6.028 0 0 0-4.766 5.435 1 1 0 0 0 .682.82A1 1 0 0 1 3.605 16H2a1 1 0 0 1-1-1v-1.559a1 1 0 0 0-.314-.783A7.93 7.93 0 0 1 0 8 8 8 0 0 1 8 0z">
+                                </path>
                             </svg>
                             <span class="font-semibold">Transaction History</span>
                         </button>
                     </a>
                 </li>
-
-                <li class="rounded-sm">
-                    <a rel="noopener noreferrer" href="#" class="flex items-center p-2 space-x-3 rounded-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-5 h-5 fill-current ">
-                            <path
-                                d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z">
-                            </path>
-                        </svg>
-                        <span class="font-semibold">Search</span>
-                    </a>
-                </li>
-
 
                 <li class="rounded-sm">
                     <a rel="noopener noreferrer" href="#" class="flex items-center p-2 space-x-3 rounded-md">
@@ -149,18 +134,15 @@
                         <span>Logout</span>
                     </a>
                 </li>
-                <div>
-                    <li class="rounded-lg font-poppins mt-6 bg-cyan-950 py-3 px-10 w-full border border-sky-950">
+
+                <li class="rounded-lg font-poppins mt-6 bg-cyan-950 py-3 px-10 w-full border border-sky-950">
                         <div class=" text-center ">
                             @include('clock')
                         </div>
                     </li>
-                </div>
-
             </ul>
         </div>
     </div>
-
 </div>
 
 <script>

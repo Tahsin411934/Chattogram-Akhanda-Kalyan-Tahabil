@@ -18,8 +18,8 @@ Route::get('/wel', function () {
 
 Route::get('/', [HomeController::class, 'showHome']);
 Route::get('/dashboard', [MemberController::class, 'showDashboard']) 
-    ->middleware(['auth', 'verified']) // Apply middleware
-    ->name('dashboard'); // Set the name for the route
+    ->middleware(['auth', 'verified']) 
+    ->name('dashboard'); 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -50,8 +50,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/receipt/withdrawal', [ReceiptController::class, 'withdrawal'])->name('receipt.withdrawal');
 
 
-    Route::get('/transaction/history', [TransactionHistoryController::class, 'dailyTransactionHistory'])->name('transactionHistory.transactionHistory');
-   
+    Route::get('/transaction-history', [TransactionHistoryController::class, 'fetchTransactionsByDate'])->name('transactionHistory.transactionHistory');
+    Route::get('/member/transaction/history', [TransactionHistoryController::class, 'fetchTransactionsByMember'])->name('transactionHistory.memberTransactionHistory');
+    Route::get('/transaction/history/monthly', [TransactionHistoryController::class, 'fetchMonthlyTransactions'])->name('transactionHistory.monthlyTransactions');
 });
 
 require __DIR__ . '/auth.php';

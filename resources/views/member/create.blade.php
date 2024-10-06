@@ -219,7 +219,7 @@
                                 <div class="mb-4 form-control w-full">
                                     <label for="membership_id" class="block dark:text-gray-50 mb-2">Membership ID</label>
                                     <input type="number" id="membership_id" name="membership_id"
-                                        value="{{ $totalMembers+1 }}" class="border text-gray-950 rounded-lg p-2 w-full" readonly>
+                                        value="{{ $largestMemberId+1 }}" class="border text-gray-950 rounded-lg p-2 w-full" readonly>
 
                                 </div>
 

@@ -1,6 +1,6 @@
-<div class="">
+<div class=" text-yellow-100">
 
-    <div class="clock text-4xl text-center" id="clock">
+    <div class="clock text-3xl text-center" id="clock">
         <!-- The clock will be displayed here -->
     </div>
 </div>

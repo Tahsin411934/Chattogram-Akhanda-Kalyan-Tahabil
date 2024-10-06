@@ -4,25 +4,36 @@
             @include('layouts.sidebar')
         </div>
         <div class="col-span-8">
-            @include('layouts.viewTransectionTab')
+        @include('layouts.viewTransectionTab')
+            <div class="container mx-auto w-[98%]">
+                <h1 class="text-center mb-4 text-gray-800 dark:text-gray-200">Member Transaction History</h1>
 
-            <div class="container mx-auto">
-                <h1 class="text-center mb-4">Daily Transaction History</h1>
-
-                <!-- Display the date input form -->
-                <form method="GET" action="{{ route('transactionHistory.transactionHistory') }}" id="transaction-form">
-                    <div class="mb-3">
-                        <label for="date" class="form-label">Select Date:</label>
-                        <input type="date" id="date" name="date" class="form-control text-slate-950" 
-                               value="{{ request('date', date('Y-m-d')) }}" required onchange="this.form.submit()">
+                <!-- Display the member selection form -->
+                <form method="GET"  action="{{ route('transactionHistory.memberTransactionHistory') }}">
+                    <div class="mb-4">
+                        <label for="member_id" class="block text-gray-700 dark:text-gray-300">Member ID</label>
+                        <input list="members_list" id="member_id" name="member_id"
+                            class="border rounded-lg p-2 w-[80%] text-gray-900 dark:text-gray-300 dark:bg-gray-800 border-gray-300 dark:border-gray-600"
+                            required placeholder="Type to search..."
+                            oninput="updateMemberDetails()">
+                        <datalist id="members_list">
+                            @foreach($members as $member)
+                                <option value="{{ $member->member_id }}">{{ $member->member_id }} - {{ $member->member_name }}</option>
+                            @endforeach
+                        </datalist>
+                        @error('member_id')
+                        <p class="text-red-500 mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-600">
+                        See Transactions
+                    </button>
                 </form>
 
                 @if(isset($transactions) && count($transactions) > 0)
-                    <h2 class="mt-4 text-center">Transactions for {{ request('date', date('Y-m-d')) }}</h2>
+                    <h2 class="mt-4 text-center text-gray-800 dark:text-gray-200">Transactions for Member ID: {{ request('member_id') }}</h2>
 
-                    <!-- Table styling for light and dark modes -->
-                    <div class="overflow-x-auto w-[99%] ">
+                    <div class="overflow-x-auto">
                         <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                             <thead>
                                 <tr class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
@@ -49,7 +60,7 @@
                         </table>
                     </div>
                 @else
-                    <p class="mt-4 text-center">No transactions found for the selected date.</p>
+                    <p class="mt-4 text-center text-gray-800 dark:text-gray-300">No transactions found for the selected member.</p>
                 @endif
             </div>
         </div>

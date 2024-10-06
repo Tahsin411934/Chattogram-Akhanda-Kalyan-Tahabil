@@ -1,8 +1,8 @@
 <nav x-data="{ open: false }" class=" text-gray-900 bg-gray-950 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+        <div class="grid grid-cols-8 items-center justify-between h-16">
+            <div class="flex col-span-1">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -17,11 +17,16 @@
                     </x-nav-link>
                 </div>
             </div>
-            @include('layouts.title')
-           
+            <div class="col-span-5">
+                @include('layouts.title')
+            </div>
 
+
+            <div class=" text-center  col-span-1">
+                @include('clock')
+            </div>
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center col-span-1 sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button

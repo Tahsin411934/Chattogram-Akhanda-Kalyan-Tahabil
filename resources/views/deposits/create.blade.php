@@ -165,6 +165,9 @@
                 </script>
 
             </div>
+            @include("layouts.footer")
         </div>
+        
     </div>
+   
 </x-app-layout>
